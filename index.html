@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yahtzee Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="container">
+        
+        <div id="left-column">
+            <h2>YAHTZEE</h2>
+            <div id="diceSection1">
+                <h3>Roll 1</h3>
+                <div class="dice" id="dice1">
+                    <div class="die" id="die1-1" onclick="toggleHold(1, 1)">_</div>
+                    <div class="die" id="die1-2" onclick="toggleHold(1, 2)">_</div>
+                    <div class="die" id="die1-3" onclick="toggleHold(1, 3)">_</div>
+                    <div class="die" id="die1-4" onclick="toggleHold(1, 4)">_</div>
+                    <div class="die" id="die1-5" onclick="toggleHold(1, 5)">_</div>
+                </div>
+                <button id="rollButton1" onclick="rollDice(1)">Roll Dice</button>
+                <button id="confirmHold1" onclick="confirmHold(1)">Confirm Hold</button>
+            </div>
+            <div id="diceSection2">
+                <h3>Roll 2</h3>
+                <div class="dice" id="dice2">
+                    <div class="die" id="die2-1" onclick="toggleHold(2, 1)">_</div>
+                    <div class="die" id="die2-2" onclick="toggleHold(2, 2)">_</div>
+                    <div class="die" id="die2-3" onclick="toggleHold(2, 3)">_</div>
+                    <div class="die" id="die2-4" onclick="toggleHold(2, 4)">_</div>
+                    <div class="die" id="die2-5" onclick="toggleHold(2, 5)">_</div>
+                </div>
+                <button id="rollButton2" onclick="rollDice(2)" disabled>Roll Dice</button>
+                <button id="confirmHold2" onclick="confirmHold(2)" disabled>Confirm Hold</button>
+            </div>
+            <div id="diceSection3">
+                <h3>Roll 3</h3>
+                <div class="dice" id="dice3">
+                    <div class="die" id="die3-1" onclick="toggleHold(3, 1)">_</div>
+                    <div class="die" id="die3-2" onclick="toggleHold(3, 2)">_</div>
+                    <div class="die" id="die3-3" onclick="toggleHold(3, 3)">_</div>
+                    <div class="die" id="die3-4" onclick="toggleHold(3, 4)">_</div>
+                    <div class="die" id="die3-5" onclick="toggleHold(3, 5)">_</div>
+                </div>
+                <button id="rollButton3" onclick="rollDice(3)" disabled>Roll Dice</button>
+                <button id="confirmHold3" onclick="confirmHold(3)" disabled>Confirm Hold</button>
+            </div>
+        </div>
+        <div id="right-column">
+            <div>
+                <p>Current Round: <span id="roundCount">1</span></p>
+            </div>
+            <div id="scorecard">
+                <h2>Scorecard</h2>
+                <div class="column">
+                    <table>
+                        <tr>
+                            <th>Upper Section</th>
+                            <th>Score</th>
+                        </tr>
+                        <tr>
+                            <td onclick="selectCategory('ones')">Ones</td>
+                            <td id="ones">0</td>
+                        </tr>
+                        <tr>
+                            <td onclick="selectCategory('twos')">Twos</td>
+                            <td id="twos">0</td>
+                        </tr>
+                        <tr>
+                            <td onclick="selectCategory('threes')">Threes</td>
+                            <td id="threes">0</td>
+                        </tr>
+                        <tr>
+                            <td onclick="selectCategory('fours')">Fours</td>
+                            <td id="fours">0</td>
+                        </tr>
+                        <tr>
+                            <td onclick="selectCategory('fives')">Fives</td>
+                            <td id="fives">0</td>
+                        </tr>
+                        <tr>
+                            <td onclick="selectCategory('sixes')">Sixes</td>
+                            <td id="sixes">0</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="column">
+                    <table>
+                        <tr>
+                            <th>Lower Section</th>
+                            <th>Score</th>
+                        </tr>
+                        <tr>
+                            <td onclick="selectCategory('threeOfAKind')">Three of a Kind</td>
+                            <td id="threeOfAKind">0</td>
+                        </tr>
+                        <tr>
+                            <td onclick="selectCategory('fourOfAKind')">Four of a Kind</td>
+                            <td id="fourOfAKind">0</td>
+                        </tr>
+                        <tr>
+                            <td onclick="selectCategory('fullHouse')">Full House</td>
+                            <td id="fullHouse">0</td>
+                        </tr>
+                        <tr>
+                            <td onclick="selectCategory('smallStraight')">Small Straight</td>
+                            <td id="smallStraight">0</td>
+                        </tr>
+                        <tr>
+                            <td onclick="selectCategory('largeStraight')">Large Straight</td>
+                            <td id="largeStraight">0</td>
+                        </tr>
+                        <tr>
+                            <td onclick="selectCategory('yahtzee')">Yahtzee</td>
+                            <td id="yahtzee">0</td>
+                        </tr>
+                        <tr>
+                            <td>Total Score</td>
+                            <td id="totalScore">0</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="endGameModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <p id="finalScoreMessage"></p>
+                <button onclick="resetGame()">Reset Game</button>
+            </div>
+        </div>
+        
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
